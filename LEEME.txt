@@ -1,0 +1,29 @@
+HANGAR MECÁNICA · cómo publicarlo
+
+OPCIÓN A · Netlify (recomendada, gratis, con base de datos Netlify Blobs)
+  1. Subí esta carpeta a un repo nuevo de GitHub (por ejemplo "hangar-mecanica-demo").
+  2. En app.netlify.com > Add new site > Import an existing project > GitHub > elegí el repo.
+     (el build y la carpeta ya vienen en netlify.toml: "npm run build" / "dist")
+  3. Site configuration > Environment variables: agregá ADMIN_PASSWORD con tu clave.
+     Después hacé "Trigger deploy" para que la tome.
+  4. Web:   https://TU-SITIO.netlify.app
+     Panel: https://TU-SITIO.netlify.app/admin  (Torre de control)
+
+OPCIÓN B · Render (gratis, como los sitios anteriores)
+  1. Subí esta carpeta a un repo nuevo de GitHub.
+  2. En render.com > New > Web Service > elegí el repo.
+       Build command:  npm install && npm run build
+       Start command:  npm start
+       Instance type:  Free
+  3. Environment: agregá ADMIN_PASSWORD con tu clave.
+  4. Panel: https://TU-SITIO.onrender.com/admin
+  Ojo: en el plan gratis de Render el sitio "duerme" y tarda ~50 s en despertar,
+  y los turnos se guardan en disco temporal (se reinician con cada deploy).
+
+QUÉ TRAE
+  - La web arranca con turnos y pedidos de ejemplo para que la Torre no esté vacía.
+    En el panel > Ajustes > "Reiniciar datos de la demo" se borran y vuelven a cargar.
+  - Los precios son de ejemplo: el taller los cambia en Panel > Ajustes.
+  - Mientras sea demo, la web tiene "noindex" y el cartel de "Sitio de demostración".
+    Al pasarla a producción: sacar el cartel (src/components/Chrome.jsx), el noindex
+    (index.html, netlify.toml, server.js) y completar DOMINIO en public/sitemap.xml y robots.txt.

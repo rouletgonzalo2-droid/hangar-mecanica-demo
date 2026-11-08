@@ -1,0 +1,7 @@
+# Sitio de demostración: no indexar todavía. Al publicar el sitio real, reemplazar por:
+# User-agent: *
+# Allow: /
+# Disallow: /admin
+# Sitemap: https://DOMINIO/sitemap.xml
+User-agent: *
+Disallow: /
